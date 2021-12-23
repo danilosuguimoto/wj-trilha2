@@ -7,22 +7,54 @@
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Webjump\HelloWorld\Api\ParamManagerInterface"
+                type="Webjump\HelloWorld\Model\ParamManager" />
+
+    <preference for="Webjump\HelloWorld\Api\MessageManagerInterface"
+                type="Webjump\HelloWorld\Model\MessageManager" />
+
+    <preference for="Webjump\HelloWorld\Api\PetRepositoryInterface"
+                type="Webjump\HelloWorld\Model\PetRepository" />
+
+    <preference for="Webjump\HelloWorld\Api\Data\PetInterface"
+                type="Webjump\HelloWorld\Model\Pet" />
+
+    <preference for="Webjump\HelloWorld\Api\Data\PetSearchResultsInterface"
+                type="Magento\Framework\Api\SearchResults" />
+
+    <preference for="Webjump\HelloWorld\Api\PetKindRepositoryInterface"
+                type="Webjump\HelloWorld\Model\PetKindRepository" />
+
+    <preference for="Webjump\HelloWorld\Api\Data\PetKindInterface"
+                type="Webjump\HelloWorld\Model\PetKind" />
+
+    <preference for="Webjump\HelloWorld\Api\Data\PetKindSearchResultsInterface"
+                type="Magento\Framework\Api\SearchResults" />
+
     <type name="Magento\Framework\App\Action\Action">
         <plugin name="myFirstPlugin" type="Webjump\HelloWorld\Plugin\MyFirstPlugin" sortOrder="1" disabled="false" />
     </type>
 
-    <virtualType name="CustomLoggers" type="Magento\Framework\Logger\Monolog">
+    <virtualType name="CustomLogger" type="Magento\Framework\Logger\Monolog">
         <arguments>
             <argument name="handlers" xsi:type="array">
-                <item name="debug" xsi:type="object">Webjump\HelloWorld\Logger\Handler\CustomDebugHandler</item>
-                <item name="critical" xsi:type="object">Webjump\HelloWorld\Logger\Handler\CustomCriticalHandler</item>
+                <item name="critical" xsi:type="object">Webjump\HelloWorld\Logger\Handler\CriticalHandler</item>
+                <item name="debug" xsi:type="object">Webjump\HelloWorld\Logger\Handler\DebugHandler</item>
             </argument>
         </arguments>
     </virtualType>
 
     <type name="Webjump\HelloWorld\Plugin\MyFirstPlugin">
         <arguments>
-            <argument name="logger" xsi:type="object">CustomDebugLogger</argument>
+            <argument name="logger" xsi:type="object">CustomLogger</argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Framework\Console\CommandListInterface">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="my_first_cutom_command" xsi:type="object">Webjump\HelloWorld\Console\Command\MyFirstCustomCommand</item>
+            </argument>
         </arguments>
     </type>
 </config>

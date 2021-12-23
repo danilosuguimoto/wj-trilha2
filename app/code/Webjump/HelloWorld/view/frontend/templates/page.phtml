@@ -1,0 +1,35 @@
+<?php
+/**
+ * @author Danilo Eidy Ramazzotti Suguimoto
+ */
+
+/**
+ * @var Page $block
+ */
+
+use Webjump\HelloWorld\Block\HelloWorld\Page;
+
+$devData = $block->getDeveloperData();
+?>
+<div class="dev-data">
+    <div class="block block-dashboard-info">
+        <div class="block-content"
+             style="display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-between;">
+            <?php foreach ($devData as $key => $data): ?>
+                <div class="box box-information">
+                    <strong class="box-title">
+                        <span><?= __($key); ?></span>
+                    </strong>
+                    <div class="box-content">
+                        <p>
+                            <?= __($data) ?>
+                        </p>
+                    </div>
+                </div>
+            <?php endforeach;?>
+        </div>
+    </div>
+</div>
+<?= $block->getChildHtml('helloworld_helloworld_additional_content') ?>

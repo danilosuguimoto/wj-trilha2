@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * xml version 1
+ *
+ * @author Danilo Eidy Ramazzotti Suguimoto
+ */
+-->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/helloworld/myfirstwebapi-get/:message" method="GET">
+        <service class="Webjump\HelloWorld\Api\ParamManagerInterface" method="processRequest"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/helloworld/myfirstwebapi-post" method="POST">
+        <service class="Webjump\HelloWorld\Api\ParamManagerInterface" method="processRequest"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+</routes>

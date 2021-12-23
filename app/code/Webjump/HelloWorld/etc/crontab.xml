@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ * xml version 1
+ *
+ * @author Danilo Eidy Ramazzotti Suguimoto
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="academia_wj">
+        <job instance="Webjump\HelloWorld\Cron\MyFirstCron"
+             method="logActivity"
+             name="webjump_helloworld_log_activity">
+            <schedule>* * * * *</schedule>
+        </job>
+    </group>
+</config>

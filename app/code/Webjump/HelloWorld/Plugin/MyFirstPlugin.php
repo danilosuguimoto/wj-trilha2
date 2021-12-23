@@ -7,7 +7,7 @@ declare(strict_types=1);
 
 namespace Webjump\HelloWorld\Plugin;
 
-use Monolog\Logger;
+use Magento\Framework\Logger\Monolog as Logger;
 use Magento\Framework\App\Action\Action;
 
 /**
@@ -23,9 +23,8 @@ class MyFirstPlugin
     /**
      * @param Logger $logger
      */
-    public function __construct(
-        Logger $logger
-    ) {
+    public function __construct(Logger $logger)
+    {
         $this->logger = $logger;
     }
 

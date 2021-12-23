@@ -3,17 +3,15 @@
  * @author Danilo Eidy Ramazzotti Suguimoto
  */
 
-declare(strict_types=1);
-
 namespace Webjump\HelloWorld\Logger\Handler;
 
 use Magento\Framework\Logger\Handler\Base;
 use Monolog\Logger;
 
 /**
- * Class CustomCriticalHandler
+ * Class CriticalHandler
  */
-class CustomCriticalHandler extends Base
+class CriticalHandler extends Base
 {
     /**
      * Logging level

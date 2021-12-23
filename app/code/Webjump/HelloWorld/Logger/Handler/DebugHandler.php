@@ -3,17 +3,15 @@
  * @author Danilo Eidy Ramazzotti Suguimoto
  */
 
-declare(strict_types=1);
-
 namespace Webjump\HelloWorld\Logger\Handler;
 
 use Magento\Framework\Logger\Handler\Base;
 use Monolog\Logger;
 
 /**
- * Class CustomDebugHandler
+ * Class DebugHandler
  */
-class CustomDebugHandler extends Base
+class DebugHandler extends Base
 {
     /**
      * Logging level

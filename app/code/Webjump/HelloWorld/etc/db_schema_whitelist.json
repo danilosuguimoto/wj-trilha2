@@ -1,0 +1,45 @@
+{
+    "pet_table": {
+        "column": {
+            "pet_id": true,
+            "owner_id": true,
+            "pet_name": true,
+            "pet_owner": true,
+            "owner_phone": true,
+            "created_at": true,
+            "updated_at": true
+        },
+        "index": {
+            "PET_TABLE_PET_ID": true,
+            "PET_TABLE_OWNER_ID": true,
+            "PET_TABLE_PET_NAME": true,
+            "PET_TABLE_PET_OWNER": true,
+            "PET_TABLE_OWNER_PHONE": true,
+            "PET_TABLE_CREATED_AT": true,
+            "PET_TABLE_UPDATED_AT": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "PET_TABLE_OWNER_ID_CUSTOMER_ENTITY_ENTITY_ID": true
+        }
+    },
+    "pet_kind": {
+        "column": {
+            "kind_id": true,
+            "name": true,
+            "description": true,
+            "created_at": true,
+            "updated_at": true
+        },
+        "index": {
+            "PET_KIND_KIND_ID": true,
+            "PET_KIND_NAME": true,
+            "PET_KIND_DESCRIPTION": true,
+            "PET_KIND_CREATED_AT": true,
+            "PET_KIND_UPDATED_AT": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}
