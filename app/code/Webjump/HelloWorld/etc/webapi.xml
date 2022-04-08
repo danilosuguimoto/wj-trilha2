@@ -19,4 +19,28 @@
             <resource ref="anonymous"/>
         </resources>
     </route>
+    <route url="/V1/petkind/create" method="POST">
+        <service class="Webjump\HelloWorld\Model\PetKind\Rest\RequestHandler" method="savePetKind"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/petkind/edit/:id" method="POST">
+        <service class="Webjump\HelloWorld\Model\PetKind\Rest\RequestHandler" method="savePetKind"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/petkind/delete/:id" method="POST">
+        <service class="Webjump\HelloWorld\Model\PetKind\Rest\RequestHandler" method="deletePetKind"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/petkind/list" method="GET">
+        <service class="Webjump\HelloWorld\Model\PetKind\Rest\RequestHandler" method="getAllPetKinds"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
 </routes>

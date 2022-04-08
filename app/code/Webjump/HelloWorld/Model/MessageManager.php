@@ -17,7 +17,7 @@ class MessageManager implements MessageManagerInterface
     /**
      * @var string
      */
-    protected string $message;
+    protected $message;
 
     /**
      * Getter method for message property

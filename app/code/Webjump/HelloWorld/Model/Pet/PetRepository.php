@@ -5,15 +5,15 @@
 
 declare(strict_types=1);
 
-namespace Webjump\HelloWorld\Model;
+namespace Webjump\HelloWorld\Model\Pet;
 
 use Magento\Framework\Api\SearchCriteriaInterface;
 use Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface;
 use Magento\Framework\Exception\CouldNotSaveException;
-use Webjump\HelloWorld\Api\PetRepositoryInterface;
 use Webjump\HelloWorld\Api\Data\PetInterface;
 use Webjump\HelloWorld\Api\Data\PetInterfaceFactory as PetFactory;
 use Webjump\HelloWorld\Api\Data\PetSearchResultsInterfaceFactory as PetSearchResultsFactory;
+use Webjump\HelloWorld\Api\PetRepositoryInterface;
 use Webjump\HelloWorld\Model\ResourceModel\Pet as ResourcePet;
 use Webjump\HelloWorld\Model\ResourceModel\Pet\CollectionFactory as PetCollectionFactory;
 

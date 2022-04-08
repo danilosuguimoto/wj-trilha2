@@ -5,7 +5,7 @@
 
 declare(strict_types=1);
 
-namespace Webjump\HelloWorld\Model;
+namespace Webjump\HelloWorld\Model\PetKind;
 
 use Magento\Framework\Data\Collection\AbstractDb;
 use Magento\Framework\Model\AbstractModel;

@@ -5,15 +5,16 @@
 
 declare(strict_types=1);
 
-namespace Webjump\HelloWorld\Model;
+namespace Webjump\HelloWorld\Model\PetKind;
 
 use Magento\Framework\Api\SearchCriteriaInterface;
 use Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface;
+use Magento\Framework\Exception\CouldNotDeleteException;
 use Magento\Framework\Exception\CouldNotSaveException;
-use Webjump\HelloWorld\Api\PetKindRepositoryInterface;
 use Webjump\HelloWorld\Api\Data\PetKindInterface;
 use Webjump\HelloWorld\Api\Data\PetKindInterfaceFactory as PetKindFactory;
 use Webjump\HelloWorld\Api\Data\PetKindSearchResultsInterfaceFactory as PetKindSearchResultsFactory;
+use Webjump\HelloWorld\Api\PetKindRepositoryInterface;
 use Webjump\HelloWorld\Model\ResourceModel\PetKind as ResourcePetKind;
 use Webjump\HelloWorld\Model\ResourceModel\PetKind\CollectionFactory as PetKindCollectionFactory;
 
@@ -70,7 +71,6 @@ class PetKindRepository implements PetKindRepositoryInterface
 
     /**
      * @inheritdoc
-     * @throws CouldNotSaveException
      */
     public function save(PetKindInterface $petKind): PetKindInterface
     {
@@ -85,7 +85,20 @@ class PetKindRepository implements PetKindRepositoryInterface
     /**
      * @inheritdoc
      */
-    public function getById($id): PetKindInterface
+    public function delete(PetKindInterface $petKind): bool
+    {
+        try {
+            $this->petKindResource->delete($petKind);
+            return true;
+        } catch (\Exception $e) {
+            throw new CouldNotDeleteException(__($e->getMessage()));
+        }
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getById(int $id): PetKindInterface
     {
         $petKind = $this->petKindFactory->create();
         $this->petKindResource->load($petKind, $id, 'kind_id');

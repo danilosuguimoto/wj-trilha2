@@ -8,7 +8,7 @@ declare(strict_types=1);
 namespace Webjump\HelloWorld\Model\ResourceModel\PetKind;
 
 use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
-use Webjump\HelloWorld\Model\PetKind;
+use Webjump\HelloWorld\Model\PetKind\PetKind;
 use Webjump\HelloWorld\Model\ResourceModel\PetKind as ResourcePetKind;
 
 /**

@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * xml version 1
+ *
+ * @author Danilo Eidy Ramazzotti Suguimoto
+ */
+-->
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">pet_kinds_listing.pet_kinds_listing_data_source</item>
+        </item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="add">
+                <url path="*/*/newkind"/>
+                <class>primary</class>
+                <label translate="true">Add New Pet Kind</label>
+            </button>
+        </buttons>
+        <spinner>pet_kinds_listing_columns</spinner>
+        <deps>
+            <dep>pet_kinds_listing.pet_kinds_listing_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="pet_kinds_listing_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <storageConfig>
+                <param name="indexField" xsi:type="string">kind_id</param>
+            </storageConfig>
+            <updateUrl path="mui/index/render"/>
+        </settings>
+        <aclResource>Webjump_HelloWorld::pet_kinds</aclResource>
+        <dataProvider class="Webjump\HelloWorld\Ui\DataProvider\PetKinds\DataProvider" name="pet_kinds_listing_data_source">
+            <settings>
+                <requestFieldName>kind_id</requestFieldName>
+                <primaryFieldName>kind_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <listingToolbar name="listing_top">
+        <settings>
+            <sticky>false</sticky>
+        </settings>
+        <bookmark name="bookmarks"/>
+        <columnsControls name="columns_controls"/>
+        <filterSearch name="fulltext"/>
+        <filters name="listing_filters"/>
+    </listingToolbar>
+    <columns name="pet_kinds_listing_columns">
+        <column name="kind_id" sortOrder="10">
+            <settings>
+                <filter>text</filter>
+                <dataType>text</dataType>
+                <label translate="true">Pet Kind ID</label>
+            </settings>
+        </column>
+        <column name="name" sortOrder="13">
+            <settings>
+                <filter>text</filter>
+                <dataType>text</dataType>
+                <label translate="true">Pet Kind Name</label>
+            </settings>
+        </column>
+        <column name="description" sortOrder="14">
+            <settings>
+                <filter>text</filter>
+                <dataType>text</dataType>
+                <label translate="true">Pet Kind Description</label>
+            </settings>
+        </column>
+        <column name="created_at" sortOrder="15">
+            <settings>
+                <filter>dateRange</filter>
+                <dataType>date</dataType>
+                <label translate="true">Created At</label>
+            </settings>
+        </column>
+        <column name="updated_at" sortOrder="15">
+            <settings>
+                <filter>dateRange</filter>
+                <dataType>date</dataType>
+                <label translate="true">Updated At</label>
+            </settings>
+        </column>
+        <actionsColumn name="actions" class="Webjump\HelloWorld\Ui\Component\Listing\Column\Actions">
+            <settings>
+                <indexField>kind_id</indexField>
+            </settings>
+        </actionsColumn>
+    </columns>
+</listing>

@@ -1,0 +1,50 @@
+# @author Danilo Eidy Ramazzotti Suguimoto
+
+type Mutation {
+    createPetKind(input: PetKindInput!): PetKindOutput
+        @resolver(class: "Webjump\\HelloWorld\\Model\\PetKind\\GraphQl\\Resolver\\SavePetKind")
+        @doc(description:"Creates a new Pet Kind")
+
+    editPetKind(input: PetKindInput!): PetKindOutput
+        @resolver(class: "Webjump\\HelloWorld\\Model\\PetKind\\GraphQl\\Resolver\\SavePetKind")
+        @doc(description:"Edits a Pet Kind")
+
+    deletePetKind(id: Int!): DeleteOutput
+        @resolver(class: "Webjump\\HelloWorld\\Model\\PetKind\\GraphQl\\Resolver\\DeletePetKind")
+        @doc(description: "Deletes the given Pet Kind ID")
+}
+
+type Query {
+    petKindList: PetKindListOutput
+        @resolver(class: "Webjump\\HelloWorld\\Model\\PetKind\\GraphQl\\Resolver\\PetKindList")
+        @doc(description: "Get customer messages")
+}
+
+input PetKindInput {
+    id: Int
+    name: String!
+    description: String!
+}
+
+type PetKindOutput {
+    success: Boolean!
+    id: Int!
+    name: String!
+    description: String!
+}
+
+type PetKindItemOutput {
+    id: Int!
+    name: String!
+    description: String!
+}
+
+type DeleteOutput {
+    success: Boolean!
+    id: Int!
+}
+
+type PetKindListOutput {
+    success: Boolean!
+    petKindList: [PetKindItemOutput]!
+}

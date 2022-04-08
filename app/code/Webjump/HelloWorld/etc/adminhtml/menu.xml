@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * xml version 1
+ *
+ * @author Danilo Eidy Ramazzotti Suguimoto
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Webjump_HelloWorld::pets"
+             title="Pets"
+             module="Webjump_HelloWorld"
+             sortOrder="10"
+             resource="Webjump_HelloWorld::pets"
+        />
+        <add id="Webjump_HelloWorld::pet_kind_management"
+             title="Pet Kind Management"
+             translate="title"
+             module="Webjump_HelloWorld"
+             parent="Webjump_HelloWorld::pets"
+             sortOrder="20"
+             dependsOnModule="Webjump_HelloWorld"
+             resource="Webjump_HelloWorld::pet_kind_management"
+        />
+        <add id="Webjump_HelloWorld::pet_kinds"
+             title="Pet Kinds"
+             translate="title"
+             module="Webjump_HelloWorld"
+             parent="Webjump_HelloWorld::pet_kind_management"
+             sortOrder="30"
+             dependsOnModule="Webjump_HelloWorld"
+             action="pets/petkind"
+             resource="Webjump_HelloWorld::pet_kinds"
+        />
+        <add id="Webjump_HelloWorld::petkind_create"
+             title="Create New Pet Kind"
+             module="Webjump_HelloWorld"
+             sortOrder="10"
+             parent="Webjump_HelloWorld::pet_kind_management"
+             action="pets/petkind/newkind"
+             resource="Webjump_HelloWorld::create"
+        />
+    </menu>
+</config>

@@ -14,25 +14,32 @@
                 type="Webjump\HelloWorld\Model\MessageManager" />
 
     <preference for="Webjump\HelloWorld\Api\PetRepositoryInterface"
-                type="Webjump\HelloWorld\Model\PetRepository" />
+                type="Webjump\HelloWorld\Model\Pet\PetRepository" />
 
     <preference for="Webjump\HelloWorld\Api\Data\PetInterface"
-                type="Webjump\HelloWorld\Model\Pet" />
+                type="Webjump\HelloWorld\Model\Pet\Pet" />
 
     <preference for="Webjump\HelloWorld\Api\Data\PetSearchResultsInterface"
                 type="Magento\Framework\Api\SearchResults" />
 
     <preference for="Webjump\HelloWorld\Api\PetKindRepositoryInterface"
-                type="Webjump\HelloWorld\Model\PetKindRepository" />
+                type="Webjump\HelloWorld\Model\PetKind\PetKindRepository" />
 
     <preference for="Webjump\HelloWorld\Api\Data\PetKindInterface"
-                type="Webjump\HelloWorld\Model\PetKind" />
+                type="Webjump\HelloWorld\Model\PetKind\PetKind" />
 
     <preference for="Webjump\HelloWorld\Api\Data\PetKindSearchResultsInterface"
                 type="Magento\Framework\Api\SearchResults" />
 
+    <preference for="Webjump\HelloWorld\Api\PetKindManagementInterface"
+                type="Webjump\HelloWorld\Model\PetKind\PetKindManagement" />
+
     <type name="Magento\Framework\App\Action\Action">
         <plugin name="myFirstPlugin" type="Webjump\HelloWorld\Plugin\MyFirstPlugin" sortOrder="1" disabled="false" />
+    </type>
+
+    <type name="Magento\Framework\App\Action\AbstractAction">
+        <plugin name="saveCustomerData" type="Webjump\HelloWorld\Plugin\SaveCustomerData" sortOrder="15"/>
     </type>
 
     <virtualType name="CustomLogger" type="Magento\Framework\Logger\Monolog">

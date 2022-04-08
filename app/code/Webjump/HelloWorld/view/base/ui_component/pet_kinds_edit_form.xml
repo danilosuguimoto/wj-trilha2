@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * xml version 1
+ *
+ * @author Danilo Eidy Ramazzotti Suguimoto
+ */
+-->
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">pet_kinds_edit_form.pet_kinds_edit_form_data_source</item>
+        </item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="save" class="Webjump\HelloWorld\Block\Adminhtml\SaveButton"/>
+            <button name="delete" class="Webjump\HelloWorld\Block\Adminhtml\DeleteButton"/>
+            <button name="back" class="Webjump\HelloWorld\Block\Adminhtml\BackButton"/>
+        </buttons>
+        <layout>
+            <type>tabs</type>
+        </layout>
+        <deps>
+            <dep>pet_kinds_edit_form.pet_kinds_edit_form_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="pet_kinds_edit_form_data_source">
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+        <settings>
+            <submitUrl path="pets/petkind/save"/>
+        </settings>
+        <dataProvider class="Webjump\HelloWorld\Model\PetKind\DataProvider" name="pet_kinds_edit_form_data_source">
+            <settings>
+                <requestFieldName>kind_id</requestFieldName>
+                <primaryFieldName>kind_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <fieldset name="pet_kinds">
+        <settings>
+            <label translate="true">Pet Kind Information</label>
+        </settings>
+        <field name="kind_id" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">pet_kinds</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="name" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">pet_kinds</item>
+                </item>
+            </argument>
+            <settings>
+                <label>Pet Kind Name</label>
+                <required>true</required>
+                <dataType>text</dataType>
+                <visible>true</visible>
+            </settings>
+        </field>
+        <field name="description" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">pet_kind</item>
+                </item>
+            </argument>
+            <settings>
+                <label>Pet Kind Description</label>
+                <required>true</required>
+                <dataType>textarea</dataType>
+                <visible>true</visible>
+            </settings>
+        </field>
+        <field name="created_at" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">pet_kind</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>date</dataType>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="updated_at" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">pet_kind</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>date</dataType>
+                <visible>false</visible>
+            </settings>
+        </field>
+    </fieldset>
+</form>

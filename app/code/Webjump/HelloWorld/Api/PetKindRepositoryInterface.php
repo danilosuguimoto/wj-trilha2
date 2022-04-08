@@ -6,6 +6,8 @@
 namespace Webjump\HelloWorld\Api;
 
 use Magento\Framework\Api\SearchCriteriaInterface;
+use Magento\Framework\Exception\CouldNotDeleteException;
+use Magento\Framework\Exception\CouldNotSaveException;
 use Webjump\HelloWorld\Api\Data\PetKindInterface;
 
 /**
@@ -19,8 +21,18 @@ interface PetKindRepositoryInterface
      *
      * @param PetKindInterface $petKind
      * @return PetKindInterface
+     * @throws CouldNotSaveException
      */
     public function save(PetKindInterface $petKind): PetKindInterface;
+
+    /**
+     * Delete a pet.
+     *
+     * @param PetKindInterface $petKind
+     * @return bool
+     * @throws CouldNotDeleteException
+     */
+    public function delete(PetKindInterface $petKind): bool;
 
     /**
      * Retrieve a pet.

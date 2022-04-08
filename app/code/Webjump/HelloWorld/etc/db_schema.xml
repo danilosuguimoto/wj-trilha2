@@ -8,13 +8,61 @@
 -->
 <schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
     <table name="pet_table" resource="default" engine="innodb">
-        <column xsi:type="int" name="pet_id" unsigned="true" nullable="false" identity="true" padding="10" comment="ID da entidade"/>
-        <column xsi:type="int" name="owner_id" unsigned="true" nullable="false" identity="false" padding="10" comment="ID do dono"/>
-        <column xsi:type="varchar" name="pet_name" nullable="false" length="255" comment="Nome do pet"/>
-        <column xsi:type="varchar" name="pet_owner" nullable="false" length="255" comment="Dono do pet"/>
-        <column xsi:type="varchar" name="owner_phone" nullable="false" length="255" comment="Celular do dono"/>
-        <column xsi:type="timestamp" name="created_at" nullable="false" default="CURRENT_TIMESTAMP" on_update="false" comment="Criado em"/>
-        <column xsi:type="timestamp" name="updated_at" nullable="false" default="CURRENT_TIMESTAMP" on_update="true" comment="Atualizado em"/>
+        <column
+            xsi:type="int"
+            name="pet_id"
+            unsigned="true"
+            nullable="false"
+            identity="true"
+            padding="10"
+            comment="ID da entidade"
+        />
+        <column
+            xsi:type="int"
+            name="owner_id"
+            unsigned="true"
+            nullable="false"
+            identity="false"
+            padding="10"
+            comment="ID do dono"
+        />
+        <column
+            xsi:type="varchar"
+            name="pet_name"
+            nullable="false"
+            length="255"
+            comment="Nome do pet"
+        />
+        <column
+            xsi:type="varchar"
+            name="pet_owner"
+            nullable="false"
+            length="255"
+            comment="Dono do pet"
+        />
+        <column
+            xsi:type="varchar"
+            name="owner_phone"
+            nullable="false"
+            length="255"
+            comment="Celular do dono"
+        />
+        <column
+            xsi:type="timestamp"
+            name="created_at"
+            nullable="false"
+            default="CURRENT_TIMESTAMP"
+            on_update="false"
+            comment="Criado em"
+        />
+        <column
+            xsi:type="timestamp"
+            name="updated_at"
+            nullable="false"
+            default="CURRENT_TIMESTAMP"
+            on_update="true"
+            comment="Atualizado em"
+        />
         <constraint xsi:type="primary" referenceId="PRIMARY">
             <column name="pet_id"/>
         </constraint>
@@ -48,11 +96,44 @@
         </index>
     </table>
     <table name="pet_kind" resource="default" engine="innodb">
-        <column xsi:type="int" name="kind_id" unsigned="true" nullable="false" identity="true" padding="10" comment="ID da entidade"/>
-        <column xsi:type="varchar" name="name" nullable="false" length="255" comment="Nome do tipo de pet"/>
-        <column xsi:type="mediumtext" name="description" nullable="true" comment="Descrição do tipo de pet"/>
-        <column xsi:type="timestamp" name="created_at" nullable="false" default="CURRENT_TIMESTAMP" on_update="false" comment="Criado em"/>
-        <column xsi:type="timestamp" name="updated_at" nullable="false" default="CURRENT_TIMESTAMP" on_update="true" comment="Atualizado em"/>
+        <column
+            xsi:type="int"
+            name="kind_id"
+            unsigned="true"
+            nullable="false"
+            identity="true"
+            padding="10"
+            comment="ID da entidade"
+        />
+        <column
+            xsi:type="varchar"
+            name="name"
+            nullable="false"
+            length="255"
+            comment="Nome do tipo de pet"
+        />
+        <column
+            xsi:type="mediumtext"
+            name="description"
+            nullable="true"
+            comment="Descrição do tipo de pet"
+        />
+        <column
+            xsi:type="timestamp"
+            name="created_at"
+            nullable="false"
+            default="CURRENT_TIMESTAMP"
+            on_update="false"
+            comment="Criado em"
+        />
+        <column
+            xsi:type="timestamp"
+            name="updated_at"
+            nullable="false"
+            default="CURRENT_TIMESTAMP"
+            on_update="true"
+            comment="Atualizado em"
+        />
         <constraint xsi:type="primary" referenceId="PRIMARY">
             <column name="kind_id"/>
         </constraint>

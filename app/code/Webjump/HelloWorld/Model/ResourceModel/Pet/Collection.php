@@ -27,7 +27,7 @@ class Collection extends AbstractCollection
     protected function _construct()
     {
         $this->_init(
-            \Webjump\HelloWorld\Model\Pet::class,
+            \Webjump\HelloWorld\Model\Pet\Pet::class,
             \Webjump\HelloWorld\Model\ResourceModel\Pet::class
         );
     }
